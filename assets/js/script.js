@@ -20,3 +20,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     runGame('addition');
 })
+
+function runGame(gameType){
+
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
+
+    let num1 = Math.floor(Math.random() * 25) + 1;
+    let num2 = Math.floor(Math.random() * 25) + 1;
+
+    if (gameType === 'addition') {
+        displayAdditionQuestion(num1, num2);
+    } else if (gameType === 'subtract') {
+        displaySubtractQuestion(num1,num2);
+    } else if (gameType === 'multiply') {
+        displayMultiplyQuestion(num1,num2);
+    } else if (gameType === 'division') {
+        displayDivisionQuestion(num1,num2);
+    } else {
+        alert(`Unknown game type: ${gameType}`);
+        throw `Unknown game type: ${gameType}. Aborting!`;
+    }
+}
+
